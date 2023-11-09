@@ -7,10 +7,11 @@ User = get_user_model()
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(min_length=6, max_length=20, required=True, write_only=True)
     password_confirm = serializers.CharField(min_length=6, max_length=20, required=True, write_only=True)
-
+    phone_number = serializers.CharField(required=True)
     class Meta:
         model = User
-        fields = ('email', 'password', 'password_confirm', 'last_name', 'first_name', 'avatar', 'username')
+        fields = ('email', 'password', 'password_confirm', 'last_name', 'first_name', 'avatar', 'username',
+                  'phone_number')
 
     def validate(self, attrs):
         password = attrs['password']

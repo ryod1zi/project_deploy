@@ -10,6 +10,7 @@ class UserManager(BaseUserManager):
             return ValueError('Email is required!!')
         email = self.normalize_email(email=email)
         user = self.model(email=email, **kwargs)
+        user.create_activation_code()
         user.set_password(password)
         user.save()
         return user
@@ -29,7 +30,7 @@ class UserManager(BaseUserManager):
 
 class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
-    password = models.CharField(max_length=20)
+    password = models.CharField(max_length=200)
     activation_code = models.CharField(max_length=255, blank=True)
     username = models.CharField(max_length=100, blank=True)
     first_name = models.CharField(max_length=30)
@@ -46,4 +47,9 @@ class CustomUser(AbstractUser):
 
     def __str__(self) -> str:
         return self.email
+
+    def create_activation_code(self):
+        import uuid
+        code = str(uuid.uuid4())
+        self.activation_code = code
 

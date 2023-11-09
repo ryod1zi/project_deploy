@@ -41,9 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_simplejwt',
+    'drf_yasg',
 
     #apps
-    'apps.account'
+    'apps.account',
+    'apps.category',
+    'apps.product',
 ]
 
 MIDDLEWARE = [
@@ -149,3 +152,16 @@ REST_FRAMEWORK = {
     ]
 }
 
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'zver.cm@gmail.com'
+EMAIL_HOST_PASSWORD = 'yhunbygyxirtmtfu'
+
+
+TWILIO_SID='ACdb51f22c3b8848b59a1c806a6ded61a2'
+TWILIO_AUTH_TOKEN='5b42eded4b441978f399a0056db0b815'
+TWILIO_SENDER_PHONE='+12027937817'
