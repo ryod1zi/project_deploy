@@ -15,4 +15,9 @@ class CategoryViewSet(ModelViewSet):
         if self.action in ['retrieve', 'list']:
             return [permissions.AllowAny(),]
         return [permissions.IsAdminUser(),]
+    
+
+
+
+    #adfaesgqsrgqarsg
 
