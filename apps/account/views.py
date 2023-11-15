@@ -10,7 +10,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework_simplejwt.views import TokenObtainPairView
 
 from .send_sms import send_activation_sms
-
+#qwerewrew
 User = get_user_model()
 
 class RegistrationView(APIView):
